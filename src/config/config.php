@@ -13,5 +13,5 @@ return [
     'settings_seeder' => 'SettingsSeeder',
     
     //the controller that exposes the panels and allows the saving of settings
-    'settings_controller' => '\Pxpm\BpSettings\App\Http\Controllers\Admin\BpSettingsCrudController'
+    'settings_controller' => '\Pxpm\BpSettings\app\Http\Controllers\Admin\BpSettingsCrudController'
 ];
