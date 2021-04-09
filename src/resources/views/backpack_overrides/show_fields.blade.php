@@ -25,7 +25,7 @@ if(!empty($fields)) {
         @endif
         
         <div class="card-body text-dark" style="display: flex;">
-            <div class="row">
+            <div class="row w-100">
                 @foreach($fields as $field)
                     @php
                         $fieldsViewNamespace = $field['view_namespace'] ?? 'crud::fields';
