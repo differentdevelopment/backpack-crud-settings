@@ -97,6 +97,7 @@ class SettingsManager
     }
 
     public function create($settings) {
+        $this->rebuildSettingsCache();
         foreach ($settings as $setting) {
             $dbSetting = null;
             $setting['type'] ?? abort(500, 'Setting need a type.');
@@ -112,7 +113,9 @@ class SettingsManager
                
                 $dbSetting = BpSettings::where('name', $setting['name'])->first();
 
-                $dbSetting->update(Arr::except($setting, array_keys($settingOptions)));
+                if ($dbSetting != null) {
+                    $dbSetting->update(Arr::except($setting, array_keys($settingOptions)));
+                }
             }
             
             if (!isset($dbSetting) && is_null($dbSetting)) {

@@ -25,14 +25,15 @@ if(!empty($fields)) {
         @endif
         
         <div class="card-body text-dark" style="display: flex;">
-          @foreach($fields as $field)
-    @php
-        $fieldsViewNamespace = $field['view_namespace'] ?? 'crud::fields';
-    @endphp
+            <div class="row">
+                @foreach($fields as $field)
+                    @php
+                        $fieldsViewNamespace = $field['view_namespace'] ?? 'crud::fields';
+                    @endphp
 
-    @include($fieldsViewNamespace.'.'.$field['type'], ['field' => $field])
-    @endforeach
-   
+                    @include($fieldsViewNamespace.'.'.$field['type'], ['field' => $field])
+                @endforeach
+            </div>
         </div>
       </div>
     
